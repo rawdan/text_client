@@ -12,13 +12,11 @@ defmodule TextClient.Player do
   end
 
   def play(game = %State{tally: %{ game_state: :good_guess}}) do
-    IO.puts("Good guess")
-    continue(game)
+    continue_with_message(game, "Good guess")
   end
 
   def play(game = %State{tally: %{ game_state: :bad_guess}}) do
-    IO.puts("Sorry, that isn't in the word")
-    continue(game)
+    continue_with_message(game, "Sorry, that isn't in the word")
   end
 
   def continue_with_message(game, message) do
